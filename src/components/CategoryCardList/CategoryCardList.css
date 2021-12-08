@@ -1,0 +1,14 @@
+.category-card-list {
+    position: relative;
+    top: -30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: start;
+    padding: 0 17%;
+
+}
+.category-card-list_item{
+    width: 31%;
+    /*margin: 20px;*/
+}
