@@ -1,8 +1,7 @@
-import ProductCard from "../ProductCard/ProductCard";
-import './FormRegister.css'
+import './RegistrationForm.css'
 
 
-function FormRegister() {
+function RegistrationForm() {
     return (
         <div className="form-container p17">
             <form className="form">
@@ -75,5 +74,5 @@ function FormRegister() {
     )
 }
 
-export default FormRegister
+export default RegistrationForm
 

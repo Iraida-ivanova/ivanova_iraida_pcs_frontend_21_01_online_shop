@@ -43,9 +43,9 @@ function Footer({contacts}) {
                 </div>
                 <div className='footer_contacts'>
                     <h5>КОНТАКТЫ</h5>
-                    <a className='footer_phone' href={contacts.phoneHref}>{contacts.phoneText}</a>
-                    <div className='footer_working-hours'>{contacts.workingHouse}</div>
-                    <a className='footer_email' href={contacts.emailHref} target={'blank'}>{contacts.email}</a>
+                    <a className='footer_phone link' href={contacts.phoneHref}>{contacts.phoneText}</a>
+                    <div className='footer_working-hours link'>{contacts.workingHouse}</div>
+                    <a className='footer_email link' href={contacts.emailHref} target={'blank'}>{contacts.email}</a>
 
                 </div>
             </div>
@@ -68,7 +68,7 @@ function Footer({contacts}) {
                     </div>
                     <div className='footer_social-link-facebook'>
                         <a href={'https://www.facebook.com/'} target={'blank'}>
-                        <img className='footer_icon'  src='/img/facebook.svg'/>
+                        <img className='footer_icon'  src='/img/facebook.png'/>
                         </a>
                     </div>
                 </div>

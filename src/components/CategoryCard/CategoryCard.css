@@ -5,7 +5,7 @@
     width: 100%;
     background-color: #ffffff;
 }
-h2.category-card_title {
+h2.category-card__title {
     width: fit-content;
     height: 30px;
     margin-top: 3px;
@@ -15,6 +15,13 @@ h2.category-card_title {
     font-family: sans-serif;
     line-height: 150%;
 }
-.category-card_image  img {
+.category-card__image  img {
     width: 100%;
+}
+.category-card__link {
+    text-decoration: none;
+    transition: .2s opacity;
+}
+.category-card__link:hover {
+    opacity: .7;
 }

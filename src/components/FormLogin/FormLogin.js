@@ -1,5 +1,6 @@
 import ProductCard from "../ProductCard/ProductCard";
 import './FormLogin.css'
+import {Link} from "react-router-dom";
 
 
 function FormLogin() {
@@ -37,8 +38,11 @@ function FormLogin() {
                     <button className="form__button">Вход</button>
                 </div>
             </form>
-            <div className='d'>
-                <a href='index.html'>Зарегистрируйся</a>
+            <div className='form__link-cont'>
+                <Link to={'/sign_up'} className='link form__link-reg'>
+                    Зарегистрируйся
+                </Link>
+
                 <br/>
                 если ты новый пользователь
             </div>

@@ -9,56 +9,79 @@ import banner from './mock3';
 import Banner from "./components/Banner/Banner";
 import Footer from './components/Footer/Footer';
 import contacts from "./contacts";
-import WomenProducts from "./components/WomenProducts/WomenProducts";
-import MenProducts from "./components/MenProducts/MenProducts";
-import KidsProducts from "./components/KidsProducts/KidsProducts";
 import ProductInBasket from "./components/ProductInBasket/ProductInBasket";
-import FormRegister from "./components/FormRegister/FormRegister";
+import RegistrationForm from "./components/RegistrationForm/RegistrationForm";
 import FormLogin from "./components/FormLogin/FormLogin";
 import React, {useEffect, useState} from "react";
 import Basket from "./components/Basket/Basket";
 import ProductCard from "./components/ProductCard/ProductCard";
-import MainPage from "./MainPage";
 import {Routes, Route, Outlet} from "react-router-dom";
 import IndexPage from "./components/IndexPage/IndexPage";
+import items from "./mock";
+import Orders from "./components/Orders/Orders";
 
 
 function App() {
+
     const [basketProducts, setBasketProducts] = useState([]);
     const onAddToBasket = (obj)=> {
-        setBasketProducts([...basketProducts,obj])
+        setBasketProducts(prev=>[...prev,obj])
     }
-    // const [basketProducts, setBasketProducts] = useState([]);
-    // const onAddtoBasket = (obj)=> {
-    //     setBasketProducts(obj)
-    //         }
+
+
   return (
       <Routes>
           <Route path={'/'} element={<LayOut/>}>
-              <Route index element={<IndexPage/>}/>
-              <Route path={'catalog'} element={<ProductCardList productList={products}/>}/>
-              <Route path={'men'} element={<MenProducts productList={products}/>}/>
-              <Route path={'women'} element={<WomenProducts productList={products}/>}/>
-              <Route path={'kids'} element={<KidsProducts productList={products}/>}/>
-              <Route path={'basket'} element={<Basket productList={basketProducts}/>}/>
+              <Route index element={<IndexPage categoryCards={categoryCards} products={products} onAddToBasket={onAddToBasket}/>}/>
+
+              <Route path={'men'} element={<ProductCardList productList={products} title={'Мужчины'} addToBasket={onAddToBasket} category={'men'}/>}/>
+              <Route path={'women'} element={<ProductCardList productList={products} title={'Женщины'} addToBasket={onAddToBasket} category={'women'}/>}/>
+              <Route path={'kids'} element={<ProductCardList productList={products} title={'Дети'} addToBasket={onAddToBasket} category={'kids'}/>}/>
+              <Route path={'sign_in'} element={<FormLogin/>}/>
+              <Route path={'sign_up'} element={<RegistrationForm/>}/>
+              <Route path={'catalog'} element={<ProductsLayout/>}>
+                <Route index element={<ProductCardList productList={products} title={'Каталог'} addToBasket={onAddToBasket} category={'all'}/>}/>
+                  <Route path={':productId'} element={<ProductPage products={products}/>}/>
+              </Route>
+              <Route path={'basket'} element={<BasketLayout/>}>
+                  <Route index element={<Basket productList={basketProducts}/>}/>
+                  <Route path={'orders'} element={<Orders productList={basketProducts}/>}/>
+              </Route>
           </Route>
 
       </Routes>
-    //
-  );
+
+  )
+}
+
+function BasketLayout() {
+    return (
+        <div>
+            <Outlet/>
+        </div>
+    )
+}
+function ProductsLayout() {
+    return (
+        <div>
+            <Outlet/>
+        </div>
+    )
 }
 function LayOut() {
     return (
         <div className="App">
-            <Header/>
-            <main className='content'>
-                <Outlet/>
-            </main>
+            <div>
+                <Header/>
+
+                <main className='content'>
+                    <Outlet/>
+                </main>
+            </div>
+
             <Footer contacts={contacts}/>
         </div>
     )
 }
-export default App;
-// <div className={'f'}>*/}
-    {/*      <CategoryCardList categoryCardList={categoryCards}/>*/}
-    {/*  </div>*/}
+
+export default App

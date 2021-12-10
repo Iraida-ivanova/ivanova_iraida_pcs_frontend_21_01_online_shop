@@ -1,8 +1,10 @@
 .footer {
+
     background-color: #1E212C;
     font-size: calc(8px + (16 - 8) * ((100vw - 500px) / (1920 - 500)));
     line-height: 160%;
     color: #ffffff;
+
 
 }
 .footer_container {
@@ -25,7 +27,7 @@
     text-decoration: none;
 }
 .footer_working-hours {
-    opacity: 0.6;
+    /*opacity: 0.6;*/
 }
 
 .footer_email {

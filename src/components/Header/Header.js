@@ -7,41 +7,49 @@ function Header () {
     return (
         <div className='header'>
             <div className='header-topbar p17'>
-                <div className="header-topbar_phone-number">Бесплатный звонок: +7 (800) 888-88-88</div>
-                <a className='header-topbar_link' href={'https://mail.ru/'}>
-                    <i className='material-icons'>account_circle</i>
-                    <span className='header-topbar_link-text'>Войти</span>
-                </a>
+                <a className='header-topbar__phone-number link' href='tel:+7-495-790-35-03'>Бесплатный звонок: +7-495-790-35-03</a>
+                <div className='header-topbar__sign'>
+                    <Link to={'sign_in'} className='link header-topbar__link'>
+                        <i className='material-icons'>account_circle</i>
+                        <span className='header-topbar__link-text'>Вход/</span>
+                    </Link>
+                    <Link to={'sign_up'} className='link header-topbar__link'>
+                        <span className='header-topbar__link-text'>Регистрация</span>
+                    </Link>
+                </div>
+
             </div>
-            <div className='header_content p17'>
-                <div className='header_container'>
-                    <img className='logo' src='img/logo.png'/>
-                        <ul className='header_menu'>
-                            <li className='header_menu-category'>
-                                <Link to={'catalog'} className='header_link'>Все</Link>
+            <div className='header-content p17'>
+                <div className='header-content__container'>
+                    <Link to={'/'}>
+                        <img className='logo' src='/img/logo.png' alt='Logo'/>
+                    </Link>
+                        <ul className='header-content__menu'>
+                            <li className='header-content__menu-category'>
+                                <Link to={'catalog'} className='header-content__link'>Все</Link>
                             </li>
-                            <li className='header_menu-category'>
-                                <Link to={'men'} className='header_link'>Мужчины</Link>
+                            <li className='header-content__menu-category'>
+                                <Link to={'men'} className='header-content__link'>Мужчины</Link>
                             </li>
-                            <li className='header_menu-category'>
-                                <Link to={'women'} className='header_link'>Женщины</Link>
+                            <li className='header-content__menu-category'>
+                                <Link to={'women'} className='header-content__link'>Женщины</Link>
                             </li>
-                            <li className='header_menu-category'>
-                                <Link to={'kids'} className='header_link'>Дети</Link>
+                            <li className='header-content__menu-category'>
+                                <Link to={'kids'} className='header-content__link'>Дети</Link>
                             </li>
 
                         </ul>
                 </div>
-                <div className='header_content_wrapper'>
-                    <Link to={'basket'} className='header_link'>
+                <div className='header-content__wrapper'>
+                    <Link to={'basket'} className='header-content__link'>
                         <i className='material-icons'>shopping_cart</i>
                     </Link>
-                    <div className='header_content_iterator'>
+                    <div className='header-content__iterator'>
                         1
                     </div>
                 </div>
             </div>
-            <div className='header_bottom'></div>
+            <div className='header__bottom'></div>
         </div>
     )
 }

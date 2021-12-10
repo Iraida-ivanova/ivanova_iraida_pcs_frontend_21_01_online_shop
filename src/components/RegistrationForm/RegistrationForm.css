@@ -107,8 +107,6 @@ h3.form__tittle {
     color: #787878;
     font-weight: normal;
     font-style: normal;
-    font-size: 14px;
-    line-height: 16px;
 }
 .form__checkbox-label {
     font-weight: normal;
@@ -168,10 +166,7 @@ h3.form__tittle {
         top: 4px;
         left: 2.3%;
     }
-    .link {
-        font-size: 18px;
-        line-height: 16px;
-    }
+
 }
 
 @media screen and (max-width: 400px) {

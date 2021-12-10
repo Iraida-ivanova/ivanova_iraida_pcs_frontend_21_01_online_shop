@@ -1,6 +1,6 @@
 .category-card-list {
     position: relative;
-    top: -30px;
+    top: -40px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -8,7 +8,7 @@
     padding: 0 17%;
 
 }
-.category-card-list_item{
+.category-card-list__item{
     width: 31%;
     /*margin: 20px;*/
 }
