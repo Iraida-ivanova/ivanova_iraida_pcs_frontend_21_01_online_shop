@@ -4,5 +4,4 @@ export default {
     workingHouse:'Ежедневно: с 09-00 до 21-00',
     emailHref: 'mailto:office@createx.ru',
     email: 'office@createx.ru',
-
 }

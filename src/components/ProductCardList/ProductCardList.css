@@ -1,12 +1,21 @@
-.product-card-list_item {
-    margin-bottom: 20px;
+.product-card-list__item {
+    margin-bottom: 40px;
     width: calc(160px + (220 - 160) * ((100vw - 500px) / (1920 - 500)));
     height: calc(240px + (320 - 240) * ((100vw - 500px) / (1920 - 500)));
 }
 .product-card-list {
+    padding: 30px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: start;
     gap: 40px;
+}
+.product-card-list__title {
+    text-align: center;
+    margin: 40px 0;
+}
+.filling-empty-space-childs {
+    margin-bottom: 40px;
+    width: calc(160px + (220 - 160) * ((100vw - 500px) / (1920 - 500)));
+    height: calc(240px + (320 - 240) * ((100vw - 500px) / (1920 - 500)));
 }

@@ -1,14 +1,15 @@
-import Header from "../Header/Header";
 import Banner from "../Banner/Banner";
 import bannerImg from "../../mock3";
 import React from "react";
-import contacts from "../../contacts";
-import Footer from "../Footer/Footer";
+import CategoryCardList from "../CategoryCardList/CategoryCardList";
+import ProductCardList from "../ProductCardList/ProductCardList";
 
-function IndexPage() {
+function IndexPage({categoryCards, products }) {
     return (
         <div>
             <Banner banner={bannerImg}/>
+            <CategoryCardList categoryCardList={categoryCards}/>
+            <ProductCardList productList={products} title={'Наши товары'} category={'all'}/>
         </div>
     )
 }
