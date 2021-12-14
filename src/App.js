@@ -1,39 +1,26 @@
-import './App.css';
 import ProductCardList from "./components/ProductCardList/ProductCardList";
 import products from "./mock";
 import categoryCards from './mock2'
-import CategoryCardList from "./components/CategoryCardList/CategoryCardList";
 import ProductPage from "./components/ProductPage/ProductPage";
 import Header from "./components/Header/Header";
-import banner from './mock3';
-import Banner from "./components/Banner/Banner";
 import Footer from './components/Footer/Footer';
 import contacts from "./contacts";
-import ProductInCart from "./components/ProductInCart/ProductInCart";
 import RegistrationForm from "./components/RegistrationForm/RegistrationForm";
 import FormLogin from "./components/FormLogin/FormLogin";
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Cart from "./components/Cart/Cart";
-import ProductCard from "./components/ProductCard/ProductCard";
 import {Routes, Route, Outlet} from "react-router-dom";
 import IndexPage from "./components/IndexPage/IndexPage";
-import items from "./mock";
 import Orders from "./components/Orders/Orders";
+import EmptyPage from "./components/EmptyPage/EmptyPage";
 
 
 
 function App() {
-    const [items, setItems] = useState([])
-    const [cartProducts, setCartProducts] = useState([]);
-    // const onAddToCart = (obj)=> {
-    //     setCartProducts(prev=>[...prev,obj])
-    // }
-
 
   return (
       <Routes>
-          <Route path={'/'} element={<LayOut/>}>
-
+          <Route path={'/'} element={<Layout/>}>
               <Route index element={<IndexPage categoryCards={categoryCards} products={products} />}/>
               <Route path={'men'} element={<ProductCardList productList={products} title={'Мужчины'}  category={'men'} />}/>
               <Route path={'women'} element={<ProductCardList productList={products} title={'Женщины'}  category={'women'}/>}/>
@@ -48,6 +35,7 @@ function App() {
               </Route>
               <Route path={'sign_in'} element={<FormLogin/>}/>
               <Route path={'sign_up'} element={<RegistrationForm/>}/>
+              <Route path={'empty'} element={<EmptyPage/>}/>
           </Route>
 
       </Routes>
@@ -69,7 +57,7 @@ function ProductsLayout() {
         </div>
     )
 }
-function LayOut() {
+function Layout() {
     return (
         <div className="App">
             <div>

@@ -123,11 +123,10 @@ h3.form__tittle {
     background-color: white;
     font-weight: normal;
 }
-
 .error {
     width  : 100%;
     padding: 0;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 16px;
     color: #CB2424;
 }
@@ -148,14 +147,13 @@ h3.form__tittle {
     border-radius: 8px;
     color: #424551;
     text-align: center;
-    font-size: 28px;
+    font-size: 22px;
 }
 .form__link-cont {
-    width: 400px;
+
     margin: 20px auto;
     text-align: center;
     font-size: 14px;
-
 }
 .form__link-reg {
     font-weight: bold;
@@ -165,12 +163,12 @@ h3.form__tittle {
 @media screen  and (min-width: 769px) {
     .form {
         width: 420px;
-        /*height: 550px;*/
     }
 }
 @media screen and (max-width: 768px) {
     .form {
-        width: 66%;
+        width: 70%;
+        padding: 26px 10px;
     }
     .form__link-reg {
         width: 90%;
@@ -185,6 +183,9 @@ h3.form__tittle {
         top: 4px;
         left: 2.3%;
     }
+    .p17 {
+        padding: 30px 5%;
+    }
 
 }
 
@@ -192,6 +193,10 @@ h3.form__tittle {
     #checkbox-error {
         top: 45px;
     }
+    .form {
+        width: 90%;
+    }
+
 }
 
 

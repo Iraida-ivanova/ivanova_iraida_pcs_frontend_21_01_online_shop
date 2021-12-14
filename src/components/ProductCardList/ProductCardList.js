@@ -15,7 +15,7 @@ function ProductCardList({productList=[],title,category='all'}) {
                         ?
                         productList.map(item => {
                             return (
-                                <div className={'product-card-list_item'} key={item.id} >
+                                <div className={'product-card-list__item'} key={item.id} >
                                     <ProductCard  id={item.id}
                                                   title={item.title}
                                                   image={item.image}
@@ -27,7 +27,7 @@ function ProductCardList({productList=[],title,category='all'}) {
                         :
                         productList.filter(product=>product.category===category).map(item => {
                             return (
-                                <div className={'product-card-list_item'} key={item.id}>
+                                <div className={'product-card-list__item'} key={item.id}>
                                     <ProductCard id={item.id}
                                                  title={item.title}
                                                  image={item.image}
@@ -42,8 +42,6 @@ function ProductCardList({productList=[],title,category='all'}) {
                 <div className='filling-empty-space-childs'></div>
 
             </div>
-
-
         </div>
     )
 }

@@ -5,10 +5,10 @@ function Banner ({banner}) {
     return (
         <div className='banner'>
             <img className='banner__img' src={banner.image} alt='Banner'/>
-                <div className='banner__text'>
-                    <p className='string1'>{banner.text1}</p>
-                    <Link to={'men'} className={' string2'}>{banner.text2}</Link>
-                </div>
+            <div className='banner__text'>
+                <p className='string1'>{banner.string1}</p>
+                <Link to={'men'} className={'linkTo string2'}>{banner.string2}</Link>
+            </div>
         </div>
     )
 }

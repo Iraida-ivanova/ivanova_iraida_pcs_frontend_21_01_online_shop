@@ -1,0 +1,45 @@
+.order {
+   margin: 40px 0;
+}
+.orders__not-logged {
+    margin: 40px;
+    text-align: center;
+    font-size: 20px;
+    line-height: 200%;
+}
+.order__link {
+    font-weight: bold;
+    color: #17696A ;
+}
+h1.orders__title {
+    text-align: center;
+    font-size: calc(24px + (30 - 24) * ((100vw - 500px) / (1920 - 500)));
+}
+h2.orders__title {
+    text-align: center;
+    font-size: calc(20px + (24 - 20) * ((100vw - 500px) / (1920 - 500)));
+}
+.order__form-container {
+    position: relative;
+    width: calc(300px + (500 - 300) * ((100vw - 500px) / (1920 - 500)));
+    height: 280px;
+    margin: 20px auto;
+}
+.order__form {
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.orders__form-group {
+    position: relative;
+    left: 10px;
+    width: 90%;
+}
+
+.orders__label {
+    font-size: 14px;
+}

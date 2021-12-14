@@ -4,11 +4,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: start;
-    padding: 0 17%;
+    align-items: flex-start;
 
 }
 .category-card-list__item{
     width: 31%;
-    /*margin: 20px;*/
 }

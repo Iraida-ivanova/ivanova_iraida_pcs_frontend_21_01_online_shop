@@ -1,6 +1,6 @@
 import './ProductInCart.css';
 import {Link} from "react-router-dom"
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {removeItemFromCart} from "../../app/reducers/cartSlice";
 import {increment, decrement,getTotalPrice} from "../../app/reducers/cartSlice";
 
@@ -49,7 +49,6 @@ function ProductInCart ({product}){
                     </button>
                 </div>
             </div>
-
         </div>
     )
 

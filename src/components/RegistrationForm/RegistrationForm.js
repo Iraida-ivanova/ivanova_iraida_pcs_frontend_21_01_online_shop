@@ -1,12 +1,11 @@
 import './Form.css'
 import React, { useState} from "react";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {setUser, setIsLoggedIn} from "../../app/reducers/userSlice";
-import {Link} from "react-router-dom";
+import {Navigate} from "react-router-dom";
 
 function RegistrationForm() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [nameError, setNameError] = useState('');
@@ -15,15 +14,14 @@ function RegistrationForm() {
     const [checkboxError, setCheckboxError] = useState('')
     const [message, setMessage]= useState('');
     const [classMessage, setClassMessage] = useState('');
-
+    const isLoggedIn = useSelector((state)=>state.user.isLoggedIn);
     const dispatch = useDispatch();
 
     const formHandler = (e)=> {
         if(e.target[0].value === ''){ setNameError(' Поле обязательно для заполнения')}
-        else {setNameError('')};
+        else {setNameError('')}
         if(e.target[1].value === ''){ setLastNameError(' Поле обязательно для заполнения')}
-        else {setLastNameError('')};
-        setEmail(e.target[2].value);
+        else {setLastNameError('')}
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (e.target[2].value === '') {
             setEmailError(' Поле обязательно для заполнения')}
@@ -32,7 +30,6 @@ function RegistrationForm() {
         else {
             setEmailError('')
         }
-        setPassword(e.target[3].value)
         if (e.target[3].value.length<6) {
             setPasswordError('Пароль не должен быть короче 6 символов');
             if (!e.target[3].value){setPasswordError('Поле обязательно для заполнения')}
@@ -61,7 +58,8 @@ function RegistrationForm() {
     }
     return (
         <div className="form-container p17">
-            <form className='form' type='submit' onSubmit={e=>formHandler(e)}>
+            {isLoggedIn && <Navigate to='/'/>}
+            <form className='form' onSubmit={formHandler}>
                 <div className='form__tittle'>
                     <h3 className="form__tittle">Регистрация</h3>
                 </div>
@@ -91,7 +89,7 @@ function RegistrationForm() {
                         <label className="form__input-label" htmlFor="form-email">Email</label>
                         <br/>
                         <input   name='email' className="form__input" type="text" id="form-email" placeholder="Введите email"/>
-                        {(emailError) && <span className="error" aria-live="polite">{emailError}</span>}
+                        {emailError && <span className="error" aria-live="polite">{emailError}</span>}
                     </div>
                 </div>
 
@@ -102,7 +100,7 @@ function RegistrationForm() {
                         <label className="form__input-label" htmlFor="form-password">Пароль</label>
                         <br/>
                         <input   name='password' className="form__input" type="password" id="form-password" placeholder="Введите пароль"/>
-                        {(passwordError) && <span className="error" aria-live="polite">{passwordError}</span>}
+                        {passwordError && <span className="error" aria-live="polite">{passwordError}</span>}
                     </div>
 
                 </div>
@@ -113,15 +111,14 @@ function RegistrationForm() {
                         <input  className="form__checkbox" type="checkbox" id="input-checkbox"/>
                         <div className="form__checkbox-mark"></div>
                         <label className="form__checkbox-label" htmlFor="input-checkbox">Я согласен с <a
-                            className="link" href="https://mail.ru/" target="_blank">Правилами пользования
+                            className="link" href="https://mail.ru/" target='_blank' rel='noreferrer noopener' >Правилами пользования
                             приложением</a></label>
                     </div>
                     {(!checkbox) && <span className="error" id='checkbox-error' aria-live="polite">{checkboxError}</span>}
-                    <span className='asterisk'>*</span>
                 </div>
                 <br/>
                 <div className="form__container-button">
-                    <button  className='button button-green'>Регистрация</button>
+                    <button type={'submit'} className='button button-green'>Регистрация</button>
                 </div>
             </form>
             {message&&<div className={`message ${classMessage}`}>

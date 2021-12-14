@@ -1,24 +1,19 @@
 .cart  {
     margin: 0;
-    padding: 30px 17%;
-
+    padding-top: 30px;
 }
 ul.cart__list {
     list-style: none;
     padding: 0
-}
-.cart__item {
-    /*margin-bottom :30px ;*/
 }
 .cart__separator {
     margin: 10px 0;
     height: 3px;
     background-color: #E5E5E5;
 }
-
 .cart__button-container {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin: 40px 0;
 }
 .cart__empty {
@@ -32,5 +27,6 @@ ul.cart__list {
 .cart__result {
     height: 40px;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
+    font-size: 20px;
 }

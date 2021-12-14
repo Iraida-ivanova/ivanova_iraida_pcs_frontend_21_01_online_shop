@@ -1,10 +1,8 @@
 import React, {useState} from 'react';
 import './ProductCard.css';
 import {Link} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {addToCart} from "../../app/reducers/cartSlice";
-import {setIsAdded} from "../../app/reducers/cartSlice"
-import classNames from "classnames";
 
 
 function ProductCard ({id, price, title, image, category,added}){
@@ -37,6 +35,5 @@ function ProductCard ({id, price, title, image, category,added}){
 
         </div>
     )
-
 }
 export default ProductCard

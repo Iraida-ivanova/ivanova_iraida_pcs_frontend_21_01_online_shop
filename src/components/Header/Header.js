@@ -11,7 +11,7 @@ function Header () {
     return (
         <div className='header'>
             <div className='header-topbar p17'>
-                <a className='header-topbar__phone-number link' href='tel:+7-495-790-35-03'>Бесплатный звонок: +7-495-790-35-03</a>
+                <a className='header-topbar__phone-number link linkTo' href='tel:+7-495-790-35-03'>Бесплатный звонок: +7-495-790-35-03</a>
                 {isLoggedIn ?
                     <Link onClick={()=>dispatch(setIsLoggedOut())} to={'/'} className='link header-topbar__link'>
                         <i className='material-icons'>account_circle</i>
@@ -27,8 +27,6 @@ function Header () {
                         </Link>
                     </div>
                     }
-
-
             </div>
             <div className='header-content p17'>
                 <div className='header-content__container'>
@@ -37,16 +35,16 @@ function Header () {
                     </Link>
                         <ul className='header-content__menu'>
                             <li className='header-content__menu-category'>
-                                <Link to={'catalog'} className='header-content__link'>Все</Link>
+                                <Link to={'catalog'} className='header-content__link linkTo'>Все</Link>
                             </li>
                             <li className='header-content__menu-category'>
-                                <Link to={'men'} className='header-content__link'>Мужчины</Link>
+                                <Link to={'men'} className='header-content__link linkTo'>Мужчины</Link>
+                            </li>
+                            <li className='header-content__menu-category LinkTo'>
+                                <Link to={'women'} className='header-content__link linkTo'>Женщины</Link>
                             </li>
                             <li className='header-content__menu-category'>
-                                <Link to={'women'} className='header-content__link'>Женщины</Link>
-                            </li>
-                            <li className='header-content__menu-category'>
-                                <Link to={'kids'} className='header-content__link'>Дети</Link>
+                                <Link to={'kids'} className='header-content__link linkTo'>Дети</Link>
                             </li>
 
                         </ul>

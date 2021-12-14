@@ -3,7 +3,7 @@ import './CategoryCardList.css'
 
 function CategoryCardList({categoryCardList}) {
     return (
-        <div className='category-card-list ' >
+        <div className='category-card-list p17' >
             {
                 categoryCardList.map(item => {
                         return (

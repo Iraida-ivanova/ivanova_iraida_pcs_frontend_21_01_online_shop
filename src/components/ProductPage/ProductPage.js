@@ -1,4 +1,4 @@
-import {Link, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import './ProductPage.css'
 import {useDispatch} from "react-redux";
@@ -7,7 +7,7 @@ import {addToCart} from "../../app/reducers/cartSlice";
 function ProductPage({products}) {
     const {productId} = useParams();
     const [product, setProduct] = useState({});
-    useEffect(()=>{setProduct({...products.find( item=>item.id===Number(productId))})},[])
+    useEffect(()=>{setProduct({...products.find( item=>item.id===Number(productId))})},[products, productId])
     const dispatch = useDispatch();
     return (
 
@@ -17,7 +17,7 @@ function ProductPage({products}) {
             </h1>
             <div className='product-page__container'>
                 <div className='product-page__image'>
-                    <img src={product.image} alt={'product image'}/>
+                    <img src={product.image} alt={'product'}/>
                 </div>
                 <div className='product-page__description'>
                     <div className='product-page__price'>
