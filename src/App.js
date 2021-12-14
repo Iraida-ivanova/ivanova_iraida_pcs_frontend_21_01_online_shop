@@ -1,64 +1,76 @@
-import './App.css';
 import ProductCardList from "./components/ProductCardList/ProductCardList";
 import products from "./mock";
 import categoryCards from './mock2'
-import CategoryCardList from "./components/CategoryCardList/CategoryCardList";
 import ProductPage from "./components/ProductPage/ProductPage";
 import Header from "./components/Header/Header";
-import banner from './mock3';
-import Banner from "./components/Banner/Banner";
 import Footer from './components/Footer/Footer';
 import contacts from "./contacts";
-import WomenProducts from "./components/WomenProducts/WomenProducts";
-import MenProducts from "./components/MenProducts/MenProducts";
-import KidsProducts from "./components/KidsProducts/KidsProducts";
-import ProductInBasket from "./components/ProductInBasket/ProductInBasket";
-import FormRegister from "./components/FormRegister/FormRegister";
+import RegistrationForm from "./components/RegistrationForm/RegistrationForm";
 import FormLogin from "./components/FormLogin/FormLogin";
-import React, {useEffect, useState} from "react";
-import Basket from "./components/Basket/Basket";
-import ProductCard from "./components/ProductCard/ProductCard";
-import MainPage from "./MainPage";
+import React from "react";
+import Cart from "./components/Cart/Cart";
 import {Routes, Route, Outlet} from "react-router-dom";
 import IndexPage from "./components/IndexPage/IndexPage";
+import Orders from "./components/Orders/Orders";
+import EmptyPage from "./components/EmptyPage/EmptyPage";
+
 
 
 function App() {
-    const [basketProducts, setBasketProducts] = useState([]);
-    const onAddToBasket = (obj)=> {
-        setBasketProducts([...basketProducts,obj])
-    }
-    // const [basketProducts, setBasketProducts] = useState([]);
-    // const onAddtoBasket = (obj)=> {
-    //     setBasketProducts(obj)
-    //         }
+
   return (
       <Routes>
-          <Route path={'/'} element={<LayOut/>}>
-              <Route index element={<IndexPage/>}/>
-              <Route path={'catalog'} element={<ProductCardList productList={products}/>}/>
-              <Route path={'men'} element={<MenProducts productList={products}/>}/>
-              <Route path={'women'} element={<WomenProducts productList={products}/>}/>
-              <Route path={'kids'} element={<KidsProducts productList={products}/>}/>
-              <Route path={'basket'} element={<Basket productList={basketProducts}/>}/>
+          <Route path={'/'} element={<Layout/>}>
+              <Route index element={<IndexPage categoryCards={categoryCards} products={products} />}/>
+              <Route path={'men'} element={<ProductCardList productList={products} title={'Мужчины'}  category={'men'} />}/>
+              <Route path={'women'} element={<ProductCardList productList={products} title={'Женщины'}  category={'women'}/>}/>
+              <Route path={'kids'} element={<ProductCardList productList={products} title={'Дети'}  category={'kids'}/>}/>
+              <Route path={'catalog'} element={<ProductsLayout/>}>
+                  <Route index element={<ProductCardList productList={products} title={'Каталог'}  category={'all'}/>}/>
+                  <Route path={':productId'} element={<ProductPage products={products}/>}/>
+              </Route>
+              <Route path={'cart'} element={<CartLayout/>}>
+                  <Route index element={<Cart/>}/>
+                  <Route path={'orders'} element={<Orders/>}/>
+              </Route>
+              <Route path={'sign_in'} element={<FormLogin/>}/>
+              <Route path={'sign_up'} element={<RegistrationForm/>}/>
+              <Route path={'empty'} element={<EmptyPage/>}/>
           </Route>
 
       </Routes>
-    //
-  );
+
+  )
 }
-function LayOut() {
+
+function CartLayout() {
+    return (
+        <div>
+            <Outlet/>
+        </div>
+    )
+}
+function ProductsLayout() {
+    return (
+        <div>
+            <Outlet/>
+        </div>
+    )
+}
+function Layout() {
     return (
         <div className="App">
-            <Header/>
-            <main className='content'>
-                <Outlet/>
-            </main>
+            <div>
+                <Header/>
+
+                <main className='content'>
+                    <Outlet/>
+                </main>
+            </div>
+
             <Footer contacts={contacts}/>
         </div>
     )
 }
-export default App;
-// <div className={'f'}>*/}
-    {/*      <CategoryCardList categoryCardList={categoryCards}/>*/}
-    {/*  </div>*/}
+
+export default App

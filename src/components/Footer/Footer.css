@@ -3,12 +3,10 @@
     font-size: calc(8px + (16 - 8) * ((100vw - 500px) / (1920 - 500)));
     line-height: 160%;
     color: #ffffff;
-
 }
 .footer_container {
     display: flex;
     justify-content: space-between;
-
 }
 .footer_container ul {
     padding: 0;
@@ -20,12 +18,18 @@
     opacity: 0.6;
 }
 .footer_contacts a {
+    font-size: 12px;
     color: #ffffff;
     opacity: 0.6;
     text-decoration: none;
 }
 .footer_working-hours {
     opacity: 0.6;
+    font-size: 12px;
+}
+.footer__item-link {
+    font-size: 12px;
+    color: #ffffff;
 }
 
 .footer_email {
@@ -43,6 +47,6 @@
     gap: 10px;
 }
 .footer_icon {
-    width: 14px;
-    height: 14px;
+    width: 20px;
+    height: 20px;
 }

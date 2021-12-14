@@ -1,25 +1,31 @@
 import React, {useState} from 'react';
 import './ProductCard.css';
+import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {addToCart} from "../../app/reducers/cartSlice";
 
-function ProductCard ({id=0, title='', price='', image='', onBasket}) {
-    const [isAdded, setIsAdded] = useState(false);
-    const onClickBasket = () => {
-        onBasket({id, title,price,image});
-        setIsAdded(!isAdded)
+
+function ProductCard ({id, price, title, image, category,added}){
+    const [isAdded, setIsAdded] = useState(added)
+    const dispatch = useDispatch();
+
+    const onClickCart = () => {
+        dispatch(addToCart({...{id, price, title, image, category}}));
+         setIsAdded(!isAdded)
     }
     return (
         <div className={'product-card'}>
-            <div className='product-card_image'>
-                <img src={image} alt={'product card'}/>
+            <div className='product-card__image'>
+                <Link to={`/catalog/${id}`}> <img src={image} alt={'product card'}/></Link>
             </div>
-            <h2 className={'product-card_title'}>
-                {title}
-            </h2>
-            <div className={'product-card_container'}>
-                <div className={'product-card_price'}>
+            <Link className={'linkTo'} to={`/catalog/${id}`}>
+                <h2 className={'product-card__title'}>{title}</h2>
+            </Link>
+            <div className={'product-card__container'}>
+                <div className={'product-card__price'}>
                     {price}
                 </div>
-                <button onClick={onClickBasket} className={'product-card_basket'}>
+                <button onClick={onClickCart} className={'product-card__basket'}>
                     {
                         isAdded?<i className='material-icons checked' >check_box</i>:<i className='material-icons' >shopping_cart</i>
                     }
@@ -29,6 +35,5 @@ function ProductCard ({id=0, title='', price='', image='', onBasket}) {
 
         </div>
     )
-
 }
 export default ProductCard
