@@ -1,0 +1,36 @@
+.cart  {
+    margin: 0;
+    padding: 30px 17%;
+
+}
+ul.cart__list {
+    list-style: none;
+    padding: 0
+}
+.cart__item {
+    /*margin-bottom :30px ;*/
+}
+.cart__separator {
+    margin: 10px 0;
+    height: 3px;
+    background-color: #E5E5E5;
+}
+
+.cart__button-container {
+    display: flex;
+    justify-content: end;
+    margin: 40px 0;
+}
+.cart__empty {
+    width: 50%;
+    margin: 40px auto;
+    text-align: center;
+}
+.cart__empty img {
+    width: 200px;
+}
+.cart__result {
+    height: 40px;
+    display: flex;
+    justify-content: end;
+}

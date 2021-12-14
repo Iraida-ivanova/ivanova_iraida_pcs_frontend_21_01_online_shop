@@ -1,6 +1,9 @@
 .form-container {
+    position: relative;
     background-color: #E5E5E5;
+    padding-top: 40px;
     height: 100vh;
+
 }
 .form {
     background: #FFFFFF;
@@ -10,7 +13,6 @@
     box-shadow: 0 0 40px 10px rgba(0, 0, 0, 0.25);
     border-radius: 4px;
     color: #424551;
-    font-weight: bold;
     font-style: normal;
     padding: 26px 45px 26px 38px;
 }
@@ -51,7 +53,7 @@ h3.form__tittle {
     background: #FFFFFF;
     border:  1px solid #D7DADD;
     color: #787878;
-    font-size: 28px;
+    font-size: 16px;
     line-height: 36px;
     border-radius: 10px;
     padding: 6px 15px;
@@ -94,6 +96,7 @@ h3.form__tittle {
 .form__checkbox-label {
     font-size: 14px;
     line-height: 16px;
+    font-weight: normal;
 }
 .form__checkbox:checked + .form__checkbox-mark::after {
     content: '✓';
@@ -102,36 +105,23 @@ h3.form__tittle {
     top: 2px;
     left: 5px;
 }
-
-.link {
-    color: #787878;
-    font-weight: normal;
-    font-style: normal;
-}
-.form__checkbox-label {
-    font-weight: normal;
-
-}
 .form__container-button{
-    width: 100%;
+    margin-top:30px ;
+    text-align: center;
 }
-.form__button {
-    width: 100%;
-    height: 44px;
-    border: none;
-    outline: none;
-    background: #17696A;
-    border-radius: 4px;
-    color: #FFFFFF;
-    transition: 0.2s opacity;
-    font-size: 24px;
+.form__container-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }
-.form__button:hover {
-    opacity: 0.7;
+.message-closed {
+    display: none;
 }
-.form__button:focus {
-    outline: none;
-    border: 2px solid #d87f05;
+.form__button-close {
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    font-weight: normal;
 }
 
 .error {
@@ -146,15 +136,44 @@ h3.form__tittle {
     top: 30px;
     left: 10px;
 }
+.message {
+    position: absolute;
+    padding: 50px 0;
+    background-color: #ffffff;
+    top: 100px;
+    left: 20%;
+    right: 20%;
+    height: 200px;
+    box-shadow: 0 0 40px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    color: #424551;
+    text-align: center;
+    font-size: 28px;
+}
+.form__link-cont {
+    width: 400px;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 14px;
+
+}
+.form__link-reg {
+    font-weight: bold;
+    color: #17696A ;
+}
+
 @media screen  and (min-width: 769px) {
     .form {
-        width: 400px;
+        width: 420px;
         /*height: 550px;*/
     }
 }
 @media screen and (max-width: 768px) {
     .form {
         width: 66%;
+    }
+    .form__link-reg {
+        width: 90%;
     }
     .form__checkbox-wrapper {
         align-self: start;}
@@ -174,3 +193,6 @@ h3.form__tittle {
         top: 45px;
     }
 }
+
+
+

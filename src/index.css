@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 body {
     font-family:  sans-serif;
     margin: 0;
@@ -31,3 +34,25 @@ body {
 h1 {
     text-align: center;
 }
+.button {
+    padding: 0;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    transition: 0.2s opacity;
+    font-size: 20px;
+}
+.button-green {
+    height: 40px;
+    width: 200px;
+    color: white;
+    background-color: #17696A;
+    border-radius: 4px;
+}
+.button:hover {
+    opacity: 0.7;
+}
+.button:focus {
+    outline: none;
+}
+

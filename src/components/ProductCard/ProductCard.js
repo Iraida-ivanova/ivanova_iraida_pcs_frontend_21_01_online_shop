@@ -1,12 +1,19 @@
 import React, {useState} from 'react';
 import './ProductCard.css';
 import {Link} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {addToCart} from "../../app/reducers/cartSlice";
+import {setIsAdded} from "../../app/reducers/cartSlice"
+import classNames from "classnames";
 
-function ProductCard ({id, title='', price='', image='', onBasket}) {
-    const [isAdded, setIsAdded] = useState(false);
-    const onClickBasket = () => {
-        onBasket({id,title,price,image});
-        setIsAdded(!isAdded)
+
+function ProductCard ({id, price, title, image, category,added}){
+    const [isAdded, setIsAdded] = useState(added)
+    const dispatch = useDispatch();
+
+    const onClickCart = () => {
+        dispatch(addToCart({...{id, price, title, image, category}}));
+         setIsAdded(!isAdded)
     }
     return (
         <div className={'product-card'}>
@@ -20,8 +27,7 @@ function ProductCard ({id, title='', price='', image='', onBasket}) {
                 <div className={'product-card__price'}>
                     {price}
                 </div>
-                <button onClick={onClickBasket} className={'product-card__basket'}>
-                    {/*<i className={isAdded?'material-icons ':'material-icons checked'} >check_box</i>*/}
+                <button onClick={onClickCart} className={'product-card__basket'}>
                     {
                         isAdded?<i className='material-icons checked' >check_box</i>:<i className='material-icons' >shopping_cart</i>
                     }

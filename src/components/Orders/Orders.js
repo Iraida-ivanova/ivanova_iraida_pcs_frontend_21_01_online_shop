@@ -1,30 +1,22 @@
 import './Orders.css'
-import ProductInBasket from "../ProductInBasket/ProductInBasket";
-import {Link} from "react-router-dom";
+import CartWithProducts from "../Cart/CartWithProducts";
+import {useSelector} from "react-redux";
 
-function Orders({productList=[]}) {
-
+function Orders() {
+    const isLoggedIn = useSelector((state)=>state.user.isLoggedIn);
     return(
-            <div className='orders'>
-                <h1 className='orders__title'>Мои заказы</h1>
-                <div>
-                    <ul className='orders__list'>
-                        {productList.map(item=>{
-                            return <li className='orders__item' key={item.id}>
-                                        <ProductInBasket product={item}/>
-                                        <div className='orders__separator'></div>
-                            </li>
-                        })}
-                    </ul>
-                    <div className={'orders__button-container'}>
-
-                            <button className='basket__button'>
-                                Оформить заказ
-                            </button>
-
+            <div>
+                {
+                    !isLoggedIn ? <div>Чтобы оформить заказ, нужно войти или зарегистрироваться, если вы новый пользователь </div>
+                    :
+                    <div>
+                        <h1>Оформление заказа</h1>
+                        <h2>Товары в корзине</h2>
+                        <CartWithProducts/>
 
                     </div>
-                </div>
+                }
+
             </div>
 
     )
