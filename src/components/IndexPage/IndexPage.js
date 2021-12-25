@@ -3,7 +3,7 @@ import React from "react";
 import CategoryCardList from "../CategoryCardList/CategoryCardList";
 import ProductCardList from "../ProductCardList/ProductCardList";
 
-function IndexPage({categoryCards, products }) {
+function IndexPage({categoryCards, products}) {
     return (
         <div>
             <Banner/>

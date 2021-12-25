@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {addToCart} from "../../app/reducers/cartSlice";
 
 
-function ProductCard ({id, price, title, image, category}){
+function ProductCard ( {id, price, title, image, category} ){
 
     const isAdded = useSelector((state)=>state.cartItems.cartItems.some(item => item.id === id));
     const dispatch = useDispatch();

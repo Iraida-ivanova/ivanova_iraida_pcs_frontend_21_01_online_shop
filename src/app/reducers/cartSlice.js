@@ -15,26 +15,46 @@ export const cartSlice = createSlice(
                 state.cartItems.push({...action.payload,
                     quantity: 1,
                     totalPrice: Number(action.payload.price.split('р')[0]),
-                })
+                }
+                )
             },
 
             removeItemFromCart: (state, action) => {
                 state.cartItems = state.cartItems.filter(item => {
-                    return item.id !== action.payload
-                });
+                    return item.id !== action.payload;
+                }
+                )
             },
 
-            increment: (state,action) => {state.cartItems.map((item)=> {if(action.payload.id===item.id){item.quantity += 1}return item;})},
+            increment: (state,action) => {
+                state.cartItems.map(item => {
+                    if (action.payload.id===item.id) {
+                        item.quantity += 1;
+                    }
+                    return item;
+                }
+                )
+            },
 
-            decrement:(state,action) => {state.cartItems.map((item)=> {if(action.payload.id===item.id){item.quantity -= 1}return item;})},
+            decrement:(state,action) => {
+                state.cartItems.map(item => {
+                    if (action.payload.id===item.id) {
+                        item.quantity -= 1
+                    }
+                    return item;
+                }
+                )
+            },
 
             getTotalPrice: (state, action) => {
-                state.cartItems = state.cartItems.map((item)=>{const price = item.price.split('р');
+                state.cartItems = state.cartItems.map(item => {
+                    const price = item.price.split('р');
                     if(action.payload.id===item.id){
                         item.totalPrice = Number(price[0]) * item.quantity;
                     }
                     return item;
-                })
+                }
+                )
             },
 
             getResult: (state ) => {
