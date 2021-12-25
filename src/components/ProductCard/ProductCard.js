@@ -1,17 +1,19 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './ProductCard.css';
 import {Link} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {addToCart} from "../../app/reducers/cartSlice";
 
 
-function ProductCard ({id, price, title, image, category,added}){
-    const [isAdded, setIsAdded] = useState(added)
+function ProductCard ({id, price, title, image, category}){
+
+    const isAdded = useSelector((state)=>state.cartItems.cartItems.some(item => item.id === id));
     const dispatch = useDispatch();
 
     const onClickCart = () => {
-        dispatch(addToCart({...{id, price, title, image, category}}));
-         setIsAdded(!isAdded)
+        if (!isAdded) {
+            dispatch(addToCart({...{id, price, title, image, category}}));
+        }
     }
     return (
         <div className={'product-card'}>
@@ -25,9 +27,9 @@ function ProductCard ({id, price, title, image, category,added}){
                 <div className={'product-card__price'}>
                     {price}
                 </div>
-                <button onClick={onClickCart} className={'product-card__basket'}>
+                <button onClick={onClickCart}>
                     {
-                        isAdded?<i className='material-icons checked' >check_box</i>:<i className='material-icons' >shopping_cart</i>
+                        isAdded?<Link to = {'/cart'}><i className='material-icons checked' >check_box</i></Link>:<i className='material-icons' >shopping_cart</i>
                     }
 
                 </button>

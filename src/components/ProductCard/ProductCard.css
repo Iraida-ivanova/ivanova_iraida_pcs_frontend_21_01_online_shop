@@ -37,10 +37,16 @@ img {
 .product-card__container {
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 .product-card__container button {
     border: none;
     background-color: #ffffff;
     color:  #17696A;
 }
+.checked {
+    color:  #03CEA4;
+}
+
+
 

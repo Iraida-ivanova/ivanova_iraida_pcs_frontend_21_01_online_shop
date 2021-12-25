@@ -21,7 +21,6 @@ function ProductCardList({productList=[],title,category='all'}) {
                                                   image={item.image}
                                                   category={item.category}
                                                   price={item.price}
-                                                  added={cartProducts.some((product)=>product.id===item.id)}
                                     />
                                 </div>)})
                         :

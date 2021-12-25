@@ -42,12 +42,15 @@ function Orders() {
                                                 доставки</label>
                                     </div>
 
-                                    <button onClick={(e)=>{e.preventDefault(); setMessage('Сервис временно недоступен')}} className='button button-green'>
+                                    <button onClick={(e)=>{e.preventDefault();
+                                        setClassMessage('');
+                                        setMessage('Сервис временно недоступен')}} className='button button-green'
+                                    >
                                         Оформить заказ
                                     </button>
-                                    {message&&
+                                    { message &&
                                     <div className={`message ${classMessage}`}>
-                                        { message}
+                                        { message }
                                         <div className='form__container-close'>
                                             <button onClick={(e)=>{e.preventDefault(); setClassMessage('message-closed')}} className='button form__button-close'>
                                                 <i  className="material-icons">close</i>

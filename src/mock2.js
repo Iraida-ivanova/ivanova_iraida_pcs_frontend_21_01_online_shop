@@ -1,4 +1,4 @@
-export default  [
+const categoryCards = [
     {
         id: 0,
         title: 'Мужчины',
@@ -18,3 +18,4 @@ export default  [
         category: 'kids'
     }
 ];
+export default categoryCards;

@@ -1,13 +1,13 @@
 import './Banner.css';
 import {Link} from "react-router-dom";
 
-function Banner ({banner}) {
+function Banner () {
     return (
         <div className='banner'>
-            <img className='banner__img' src={banner.image} alt='Banner'/>
+            <img className='banner__img' src='/img/man_in_orange3.png' alt='Banner'/>
             <div className='banner__text'>
-                <p className='string1'>{banner.string1}</p>
-                <Link to={'men'} className={'linkTo string2'}>{banner.string2}</Link>
+                <p className='string1'>НОВАЯ КОЛЛЕКЦИЯ</p>
+                <Link to={'men'} className={'linkTo string2'}>Мужчины 2021</Link>
             </div>
         </div>
     )

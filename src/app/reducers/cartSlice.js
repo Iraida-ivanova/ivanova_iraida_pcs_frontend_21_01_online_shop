@@ -17,13 +17,17 @@ export const cartSlice = createSlice(
                     totalPrice: Number(action.payload.price.split('р')[0]),
                 })
             },
+
             removeItemFromCart: (state, action) => {
                 state.cartItems = state.cartItems.filter(item => {
-                    return item.id !== action.payload.id
+                    return item.id !== action.payload
                 });
             },
+
             increment: (state,action) => {state.cartItems.map((item)=> {if(action.payload.id===item.id){item.quantity += 1}return item;})},
+
             decrement:(state,action) => {state.cartItems.map((item)=> {if(action.payload.id===item.id){item.quantity -= 1}return item;})},
+
             getTotalPrice: (state, action) => {
                 state.cartItems = state.cartItems.map((item)=>{const price = item.price.split('р');
                     if(action.payload.id===item.id){
@@ -32,11 +36,12 @@ export const cartSlice = createSlice(
                     return item;
                 })
             },
+
             getResult: (state ) => {
                 state.totalSum = state.cartItems.reduce((sum,item)=>sum + item.totalPrice,0)
             }
         },
     }
 )
-export const {addToCart,removeItemFromCart,increment,decrement,getTotalPrice,getResult,setIsAdded} = cartSlice.actions;
+export const {addToCart,removeItemFromCart,increment,decrement,getTotalPrice,getResult} = cartSlice.actions;
 export default cartSlice.reducer

@@ -1,4 +1,4 @@
-export default  [
+const products =  [
     {
         id: 0,
         price: '5000 руб.',
@@ -97,3 +97,5 @@ export default  [
         description: 'Широкое худи из футера с капюшоном на подкладке и кулиске. Карман-муфта спереди. Рельефная трикотажная резинка снизу на рукавах.'
     },
 ];
+
+export default products;

@@ -40,3 +40,8 @@
     font-size: 16px;
     background-color: #17696A;
 }
+.product-page__button_added {
+    padding-top: 12px;
+    background-color: #03CEA4;
+    text-align: center;
+}

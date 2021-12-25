@@ -44,7 +44,7 @@ function ProductInCart ({product}){
                     <div className='product-in-cart__price'>
                     {product.totalPrice} руб.
                     </div>
-                    <button className='product-in-cart__delete-button' onClick={()=>dispatch(removeItemFromCart(product))}>
+                    <button className='product-in-cart__delete-button' onClick={()=>dispatch(removeItemFromCart(product.id))}>
                         <i className="material-icons">delete</i>
                     </button>
                 </div>
