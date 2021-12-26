@@ -14,7 +14,7 @@ export const cartSlice = createSlice(
 
                 state.cartItems.push({...action.payload,
                     quantity: 1,
-                    totalPrice: Number(action.payload.price.split('р')[0]),
+                    totalPrice: parseFloat(action.payload.price),
                 }
                 )
             },
@@ -48,9 +48,9 @@ export const cartSlice = createSlice(
 
             getTotalPrice: (state, action) => {
                 state.cartItems = state.cartItems.map(item => {
-                    const price = item.price.split('р');
+                    const price = parseFloat(item.price);
                     if(action.payload.id===item.id){
-                        item.totalPrice = Number(price[0]) * item.quantity;
+                        item.totalPrice = price * item.quantity;
                     }
                     return item;
                 }
