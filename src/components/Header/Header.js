@@ -34,19 +34,26 @@ function Header () {
                         <img className='logo' src='/img/logo.png' alt='Logo'/>
                     </Link>
                         <ul className='header-content__menu'>
-                            <li className='header-content__menu-category'>
-                                <Link to={'catalog'} className='header-content__link linkTo'>Все</Link>
+                            <li>
+                                <Link to={'catalog'} className='header-content__link linkTo'>
+                                    <div className='header-content__menu-category'>Все</div>
+                                </Link>
                             </li>
-                            <li className='header-content__menu-category'>
-                                <Link to={'men'} className='header-content__link linkTo'>Мужчины</Link>
+                            <li>
+                                <Link to={'men'} className='header-content__link linkTo'>
+                                    <div className='header-content__menu-category'>Мужчины</div>
+                                </Link>
                             </li>
-                            <li className='header-content__menu-category LinkTo'>
-                                <Link to={'women'} className='header-content__link linkTo'>Женщины</Link>
+                            <li>
+                                <Link to={'women'} className='header-content__link linkTo'>
+                                    <div className='header-content__menu-category'>Женщины</div>
+                                </Link>
                             </li>
-                            <li className='header-content__menu-category'>
-                                <Link to={'kids'} className='header-content__link linkTo'>Дети</Link>
+                            <li>
+                                <Link to={'kids'} className='header-content__link linkTo'>
+                                    <div className='header-content__menu-category'>Дети</div>
+                                </Link>
                             </li>
-
                         </ul>
                 </div>
                 <div className='header-content__wrapper'>
