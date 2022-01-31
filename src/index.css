@@ -4,16 +4,26 @@
 body {
     font-family: sans-serif;
     margin: 0;
+    height: 100%;
+    width: 100%;
+}
+button {
+    cursor:pointer;
 }
 .App {
     min-height: 100vh;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    color: #424551;
+}
+.content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+
 }
 .p17 {
-  padding: 0 17%;
+    padding: 0 17%;
 }
 .linkTo {
     text-decoration: none;
@@ -47,4 +57,13 @@ h1 {
 .button:focus {
     outline: none;
 }
-
+@media screen and (max-width: 768px) {
+    .p17 {
+        padding: 0 5%;
+    }
+}
+@media screen and (max-width: 390px) {
+    .p17 {
+        padding: 0 2%;
+    }
+}

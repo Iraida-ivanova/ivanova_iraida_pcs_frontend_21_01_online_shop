@@ -7,9 +7,9 @@ import {useSelector} from "react-redux";
 function ProductCardList({productList=[],title,category='all'}) {
     const cartProducts = useSelector((state)=>state.cartItems.cartItems);
     return (
-        <div className=' p17' >
+        <div className='product-card-list p17' >
             <h2 className='product-card-list__title'>{title}</h2>
-            <div className='product-card-list'>
+            <div className='product-card-list__items'>
                 {
                     category==='all'
                         ?

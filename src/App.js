@@ -60,13 +60,11 @@ function ProductsLayout() {
 function Layout() {
     return (
         <div className="App">
-            <div>
-                <Header/>
+            <Header/>
 
-                <main className='content'>
-                    <Outlet/>
-                </main>
-            </div>
+            <main className={'content'}>
+                <Outlet/>
+            </main>
 
             <Footer contacts={contacts}/>
         </div>

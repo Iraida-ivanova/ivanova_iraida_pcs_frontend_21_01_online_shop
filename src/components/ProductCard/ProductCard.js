@@ -20,9 +20,11 @@ function ProductCard ( {id, price, title, image, category} ){
             <div className='product-card__image'>
                 <Link to={`/catalog/${id}`}> <img src={image} alt={'product card'}/></Link>
             </div>
-            <Link className={'linkTo'} to={`/catalog/${id}`}>
-                <h2 className={'product-card__title'}>{title}</h2>
-            </Link>
+            <div className={'product-card__title'}>
+                <Link className={'linkTo'} to={`/catalog/${id}`}>
+                    <div className={'product-card__text'}>{title}</div>
+                </Link>
+            </div>
             <div className={'product-card__container'}>
                 <div className={'product-card__price'}>
                     {price}
@@ -31,10 +33,8 @@ function ProductCard ( {id, price, title, image, category} ){
                     {
                         isAdded?<Link to = {'/cart'}><i className='material-icons checked' >check_box</i></Link>:<i className='material-icons' >shopping_cart</i>
                     }
-
                 </button>
             </div>
-
         </div>
     )
 }
