@@ -65,7 +65,6 @@ function Header () {
                     </div>
                 </div>
             </div>
-            <div className='header__bottom'></div>
         </div>
     )
 }
